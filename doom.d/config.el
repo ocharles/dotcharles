@@ -5,3 +5,6 @@
 (set-pretty-symbols! 'haskell-mode :iosevka t)
 
 (def-package! dhall-mode)
+(def-package! direnv)
+
+(direnv-mode)
