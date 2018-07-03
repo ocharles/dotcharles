@@ -10,3 +10,5 @@
 (direnv-mode)
 
 (setq ivy-extra-directories nil)
+
+(add-hook 'before-save-hook #'delete-trailing-whitespace)
