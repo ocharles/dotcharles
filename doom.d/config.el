@@ -8,3 +8,5 @@
 (def-package! direnv)
 
 (direnv-mode)
+
+(setq ivy-extra-directories nil)
