@@ -50,12 +50,12 @@
 
        :emacs
        dired             ; making dired pretty [functional]
-       ediff             ; comparing files in Emacs
+      ;ediff             ; comparing files in Emacs
        electric          ; smarter, keyword-based electric-indent
       ;eshell            ; a consistent, cross-platform shell (WIP)
        imenu             ; an imenu sidebar and searchable code index
       ;term              ; terminals in Emacs
-       vc
+       ;vc
 
        :tools
        editorconfig      ; let someone else argue about tabs vs spaces
