@@ -1,0 +1,4 @@
+
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/slack=slack.desktop
