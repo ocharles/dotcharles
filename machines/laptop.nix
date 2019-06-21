@@ -121,6 +121,10 @@ in {
       rateLimitInterval = "0";
     };
 
+    kbfs.enable = true;
+
+    keybase.enable = true;
+
     locate = {
       enable = true;
     };

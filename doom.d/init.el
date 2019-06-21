@@ -21,7 +21,8 @@
       ; +fuzzy)          ; enable fuzzy search backend for helm
       ;ido               ; the other *other* search engine...
        (ivy              ; a search engine for love and life
-        +fuzzy)          ; enable fuzzy search backend for ivy
+        +fuzzy
+        +childframe)
 
        :ui
        doom              ; what makes DOOM look the way it does
@@ -32,8 +33,8 @@
        hl-todo           ; highlight TODO/FIXME/NOTE tags
        modeline          ; a snazzy Atom-inspired mode-line
        nav-flash         ; blink the current line after jumping
-       neotree           ; a project drawer, like NERDTree for vim
-      ;treemacs          ; a project drawer, like neotree but cooler
+      ;neotree           ; a project drawer, like NERDTree for vim
+       treemacs          ; a project drawer, like neotree but cooler
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
