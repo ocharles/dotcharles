@@ -1,4 +1,23 @@
 [1]
+Description=Window settings for firefox
+clientmachine=nixos-desktop
+clientmachinematch=0
+maximizehoriz[$d]
+maximizehorizrule[$d]
+maximizevert[$d]
+maximizevertrule[$d]
+noborder=true
+noborderrule=3
+title=Panel 765 · AOI · CircuitHub - Mozilla Firefox
+titlematch=0
+types=1
+windowrole=browser
+windowrolematch=1
+wmclass=navigator firefox
+wmclasscomplete=true
+wmclassmatch=1
+
+[2]
 Description=Window settings for slack
 clientmachine=nixos-desktop
 clientmachinematch=0
@@ -17,7 +36,7 @@ wmclass=slack
 wmclasscomplete=false
 wmclassmatch=1
 
-[2]
+[3]
 Description=Window settings for google-chrome
 clientmachine=nixos-desktop
 clientmachinematch=0
@@ -36,7 +55,7 @@ wmclass=google-chrome
 wmclasscomplete=false
 wmclassmatch=1
 
-[3]
+[4]
 Description=Application settings for konsole
 clientmachine=nixos-desktop
 clientmachinematch=0
@@ -50,7 +69,7 @@ wmclass=konsole
 wmclasscomplete=false
 wmclassmatch=1
 
-[4]
+[5]
 Description=Application settings for emacs
 clientmachine=nixos-desktop
 clientmachinematch=0
@@ -65,4 +84,4 @@ wmclasscomplete=true
 wmclassmatch=1
 
 [General]
-count=4
+count=5

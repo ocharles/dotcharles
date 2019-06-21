@@ -1,4 +1,8 @@
 
 [Default Applications]
-text/html=google-chrome.desktop
+text/html=firefox.desktop
 x-scheme-handler/slack=slack.desktop
+x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/irc=google-chrome.desktop
+x-scheme-handler/ircs=google-chrome.desktop

@@ -19,8 +19,12 @@ display=Display,Display\tMeta+P,Switch Display
 
 [khotkeys]
 _k_friendly_name=KDE Daemon
+{450c9f82-08bd-4823-b88c-b35939b5b2d1}=Meta+Shift+Print,none,Take Rectangular Region Screenshot
+{7d582f40-f7e8-495f-82b7-0e1138449c12}=Meta+Print,none,Take Active Window Screenshot
 {9c46d776-07a2-4fbb-8632-991ce0a06078}=none,none,Launch Konsole
+{c0242e4d-3f8b-40b5-bc2e-c1e33255bbf1}=Print,none,Start Screenshot Tool
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=,none,Search
+{f1a5631f-d718-4b7f-9164-b92854bd60a6}=Shift+Print,none,Take Full Screen Screenshot
 
 [kmix]
 _k_friendly_name=Audio Volume
