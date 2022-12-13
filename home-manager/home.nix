@@ -89,7 +89,7 @@ in
     };
     kitty = {
       enable = true;
-      font = { name = "Iosevka Kitty Medium"; package = iosevka; };
+      font = { name = "Iosevka Kitty"; package = iosevka; };
       # font = { name = "Berkeley Mono Regular"; };
 
       # include ${
@@ -100,7 +100,9 @@ in
       # }
 
       extraConfig = ''
-        font_size 14.0
+        font_size 16.0
+        modify_font cell_height 2px
+        tab_bar_style powerline
         window_margin_width 3
         include ${
           pkgs.fetchurl {
