@@ -16,6 +16,10 @@
       url = "github:arxanas/git-branchless";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    tree-grepper = {
+      url = "github:BrianHicks/tree-grepper";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -23,7 +27,7 @@
     extra-trusted-public-keys = [ "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs=" ];
   };
 
-  outputs = { nixpkgs, home-manager, helix, git-branchless, ... }:
+  outputs = { nixpkgs, home-manager, helix, git-branchless, tree-grepper, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -40,6 +44,7 @@
             home.packages = [
               helix.packages.x86_64-linux.default
               git-branchless.packages.x86_64-linux.git-branchless
+              tree-grepper.packages.x86_64-linux.tree-grepper
             ];
           }
         ];
