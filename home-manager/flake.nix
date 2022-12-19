@@ -41,11 +41,14 @@
         modules = [
           ./home.nix
           {
-            home.packages = [
-              helix.packages.x86_64-linux.default
-              git-branchless.packages.x86_64-linux.git-branchless
-              tree-grepper.packages.x86_64-linux.tree-grepper
-            ];
+            programs.helix.package = helix.packages.x86_64-linux.default;
+
+            home = {
+              packages = [
+                git-branchless.packages.x86_64-linux.git-branchless
+                tree-grepper.packages.x86_64-linux.tree-grepper
+              ];
+            };
           }
         ];
       };

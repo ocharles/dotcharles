@@ -19,8 +19,12 @@ in
 
 {
   home = {
-    username = "ollie";
     homeDirectory = "/home/ollie";
+    username = "ollie";
+
+    sessionVariables = {
+      EDITOR = "hx";
+    };
 
     packages = with pkgs; [
       alloy5
@@ -76,6 +80,23 @@ in
     };
     firefox.enable = true;
     fish.enable = true;
+    helix = {
+      enable = true;
+      settings = {
+        theme = "catppuccin_mocha";
+        editor = {
+          cursorline = true;
+          rulers = [ 100 ];
+          gutters = [ "diagnostics" "spacer" "line-numbers" "diff" ];
+          cursor-shape = {
+            insert = "bar";
+            normal = "block";
+            select = "underline";
+          };
+          lsp.display-messages = true;
+        };
+      };
+    };
     home-manager.enable = true;
     htop.enable = true;
     git = {
