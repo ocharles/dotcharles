@@ -62,6 +62,7 @@ in
 
   programs = {
     bat.enable = true;
+    broot.enable = true;
     command-not-found.enable = true;
     direnv = {
       enable = true;
@@ -101,7 +102,15 @@ in
     htop.enable = true;
     git = {
       enable = true;
-      delta.enable = true;
+      difftastic.enable = true;
+      aliases = {
+        force-push = "push --force-with-lease";
+      };
+      userName = "Ollie Charles";
+      userEmail = "ollie@ocharles.org.uk";
+      extraConfig = {
+        merge.conflictstyle = "diff3";
+      };
     };
     jq.enable = true;
     starship = {
