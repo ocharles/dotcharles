@@ -142,6 +142,7 @@ in
         }
       '';
     };
+    zoxide.enable = true;
   };
 
   # xdg.configFile.nvim = {
