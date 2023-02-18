@@ -1,8 +1,0 @@
-[caps]>[lshift]
-[lshift]>[lctrl]
-[delete]>[bspace]
-[bspace]>[space]
-[rctrl]>[lalt]
-[space]>[enter]
-[\]>[rshift]
-[rshift]>[\]

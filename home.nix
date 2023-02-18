@@ -9,7 +9,6 @@ let
       serifs = "sans";
       no-cv-ss = false;
       export-glyph-names = true;
-
       ligations = {
         "inherits" = "haskell";
       };
@@ -19,12 +18,9 @@ in
 
 {
   home = {
-    homeDirectory = "/home/ollie";
-    username = "ollie";
+    stateVersion = "22.11";
 
-    sessionVariables = {
-      EDITOR = "hx";
-    };
+    homeDirectory = "/home/ollie";
 
     packages = with pkgs; [
       alloy5
@@ -33,15 +29,22 @@ in
       file
       gdb
       gh
+      gimp
+      git-branchless
       git-crypt
       gitAndTools.git-annex
       gitAndTools.hub
+      graphviz
       guitarix
-      iosevka
+      google-chrome
       kdeconnect
       konsole
+      mpv
+      remmina
       nix-diff
+      nixpkgs-fmt
       ntfs3g
+      # obsidian
       okular
       picard
       qjackctl
@@ -53,38 +56,39 @@ in
       tokei
       unzip
       vlc
-      zotero
     ];
-    stateVersion = "21.05";
+
+    sessionVariables = {
+      EDITOR = "hx";
+    };
+
+    username = "ollie";
   };
 
   fonts.fontconfig.enable = true;
 
   programs = {
     bat.enable = true;
+
     broot.enable = true;
+
+    btop.enable = true;
+
     command-not-found.enable = true;
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-    emacs = {
-      enable = false;
-      extraPackages = epkgs: [ epkgs.vterm ];
-      overrides = self: super: {
-        emacs-libvterm =
-          super.emacs-libvterm.overrideAttrs (old: {
-            src = builtins.fetchGit https://github.com/akermu/emacs-libvterm;
-          });
-      };
-      package = pkgs.emacsGit;
-    };
+
     firefox.enable = true;
+
     fish.enable = true;
+
     helix = {
       enable = true;
       settings = {
-        theme = "catppuccin_mocha";
+        theme = "ayu_dark";
         editor = {
           cursorline = true;
           rulers = [ 100 ];
@@ -98,8 +102,11 @@ in
         };
       };
     };
+
     home-manager.enable = true;
+
     htop.enable = true;
+
     git = {
       enable = true;
       difftastic.enable = true;
@@ -112,53 +119,33 @@ in
         merge.conflictstyle = "diff3";
       };
     };
+
     jq.enable = true;
+
     starship = {
       enable = true;
       enableFishIntegration = true;
     };
+
     kitty = {
       enable = true;
-      font = { name = "Iosevka Kitty"; package = iosevka; };
-      # font = { name = "Berkeley Mono Regular"; };
 
-      # include ${
-      #   pkgs.fetchurl {
-      #     url = https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/kitty_tokyonight_storm.conf;
-      #     sha256 = "0vidpk1ridlakz776pgz4lxkmq5xn75ghsr9a2krh9zlm1r264jh";
-      #   }
-      # }
+      font = {
+        # name = "Iosevka Kitty Semibold"; 
+        # package = iosevka; 
+
+        name = "Berkeley Mono Bold";
+      };
 
       extraConfig = ''
-        font_size 16.0
+        font_size 14.0
         modify_font cell_height 2px
         tab_bar_style powerline
         window_margin_width 3
-        include ${
-          pkgs.fetchurl {
-            url = https://raw.githubusercontent.com/catppuccin/kitty/main/macchiato.conf;
-            sha256 = "sha256-lk0ca7An8GSCbBMYTb/y37RogsidZRajTt12R+/z2Ls=";
-          }
-        }
+        include ${pkgs.catppuccin-kitty}/macchiato.conf
       '';
     };
+
     zoxide.enable = true;
-  };
-
-  # xdg.configFile.nvim = {
-  #   source = /home/ollie/config/nvim;
-  #   recursive = true;
-  # };
-
-  wayland.windowManager.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    config = {
-      input = {
-        "*" = {
-          xkb_layout = "dvorak";
-        };
-      };
-    };
   };
 }
