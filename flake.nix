@@ -24,28 +24,45 @@
     };
   };
 
-  outputs = inputs: {
-    nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules =
-        let
-          packageUpgrades = self: super: {
-            helix = inputs.helix.packages.x86_64-linux.default;
-            git-branchless = inputs.git-branchless.defaultPackage.x86_64-linux;
+  outputs = inputs:
+    let
+      overlays = {
+        nixpkgs.overlays = [ packageUpgrades ];
+      };
 
-            inherit (inputs) catppuccin-kitty;
-          };
+      packageUpgrades = self: super: {
+        helix = inputs.helix.packages.x86_64-linux.default;
+        git-branchless = inputs.git-branchless.defaultPackage.x86_64-linux;
 
-        in
-        [
-          { nixpkgs.overlays = [ packageUpgrades ]; }
-          inputs.home-manager.nixosModule
-          inputs.musnix.nixosModules.musnix
-          ./configuration.nix
+        inherit (inputs) catppuccin-kitty;
+      };
+    in
+    {
+      nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules =
+          [
+            overlays
+            inputs.home-manager.nixosModule
+            inputs.musnix.nixosModules.musnix
+            ./configuration.nix
+          ];
+      };
+
+      homeConfigurations.ollie = inputs.home-manager.lib.homeManagerConfiguration {
+        # https://github.com/nix-community/home-manager/issues/2942#issuecomment-1378627909
+        pkgs = import inputs.nixpkgs {
+          config.allowUnfree = true;
+          system = "x86_64-linux";
+        };
+
+        modules = [
+          overlays
+          ./home.nix
         ];
-    };
+      };
 
-    formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
-  };
+      formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+    };
 }
