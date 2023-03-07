@@ -25,6 +25,7 @@ in
     packages = with pkgs; [
       alloy5
       ardour
+      esphome
       fd
       file
       gdb
