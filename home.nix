@@ -57,6 +57,8 @@ in
       tokei
       unzip
       vlc
+      wireshark
+      simplescreenrecorder
     ];
 
     sessionVariables = {
