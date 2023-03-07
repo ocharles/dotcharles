@@ -75,4 +75,6 @@
     extraGroups = [ "audio" "dialout" "realtime" "wheel" ];
     shell = pkgs.fish;
   };
+
+  virtualisation.virtualbox.host.enable = true;
 } 
