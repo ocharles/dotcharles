@@ -145,7 +145,7 @@ in
         modify_font cell_height 2px
         tab_bar_style powerline
         window_margin_width 3
-        include ${pkgs.catppuccin-kitty}/macchiato.conf
+        include ${pkgs.catppuccin-kitty}/themes/macchiato.conf
       '';
     };
 
