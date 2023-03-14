@@ -59,6 +59,7 @@ in
       vlc
       wireshark
       simplescreenrecorder
+      tree-grepper
     ];
 
     sessionVariables = {

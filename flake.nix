@@ -22,6 +22,7 @@
       url = "github:catppuccin/kitty";
       flake = false;
     };
+    tree-grepper.url = "github:BrianHicks/tree-grepper";
   };
 
   outputs = inputs:
@@ -33,6 +34,7 @@
       packageUpgrades = self: super: {
         helix = inputs.helix.packages.x86_64-linux.default;
         git-branchless = inputs.git-branchless.defaultPackage.x86_64-linux;
+        tree-grepper = inputs.tree-grepper.packages.x86_64-linux.tree-grepper;
 
         inherit (inputs) catppuccin-kitty;
       };
