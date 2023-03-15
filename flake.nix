@@ -22,7 +22,10 @@
       url = "github:catppuccin/kitty";
       flake = false;
     };
-    tree-grepper.url = "github:BrianHicks/tree-grepper";
+    tree-grepper = {
+      inputs.tree-sitter-haskell.url = "github:tree-sitter/tree-sitter-haskell";
+      url = "github:BrianHicks/tree-grepper";
+    };
   };
 
   outputs = inputs:
