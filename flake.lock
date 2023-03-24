@@ -141,11 +141,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1678779347,
-        "narHash": "sha256-IBlGxm0eDlDO7ionoFHSb9D070wVpAx585sndQvK3ZE=",
+        "lastModified": 1679375272,
+        "narHash": "sha256-2nzxw8uMfKdfvMlxjhBLVWp6m0hibx0QqBpKuT5nWb4=",
         "owner": "arxanas",
         "repo": "git-branchless",
-        "rev": "ad142c5035d5bfa1021d13f5edf65c3f265c9a9e",
+        "rev": "34a8d9e703139b8b9ff9177141437bd75d80d0dd",
         "type": "github"
       },
       "original": {
@@ -164,11 +164,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1678843708,
-        "narHash": "sha256-cC3XuSkYDiW+HIXGLkS7YINxkpk7SIhEmsqVweJBOAI=",
+        "lastModified": 1679506233,
+        "narHash": "sha256-fbIQNjYeaNvdm4y9oLvX5mURkTnLG2EHpStaVewTDD4=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "d4c0eca1da2d5d0f69ab1e47ec6fdf60991d4517",
+        "rev": "2904a10fb1232e907f843f6195c0a13f3d917170",
         "type": "github"
       },
       "original": {
@@ -185,11 +185,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1678285456,
-        "narHash": "sha256-2rIk5OFGQmoFX1MWntKGPVCZvy5yQMX3ZCYz7i8+yb0=",
+        "lastModified": 1679067101,
+        "narHash": "sha256-tMI1inGT9u4KWQml0w30dhWqQPlth1e9K/68sfDkEQA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b0be47978de5cfd729a79c3f57ace4c86364ff45",
+        "rev": "9154cd519a8942728038819682d6b3ff33f321bb",
         "type": "github"
       },
       "original": {
@@ -222,11 +222,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1678287470,
-        "narHash": "sha256-+1Wy337pgUFbvthifzo16ygRaMI7OU6nP4fiKVflbKA=",
+        "lastModified": 1679269409,
+        "narHash": "sha256-f52ph0rV/tn2Gge6WHqO55K/TNTHAOhgp23uZ7QhlSE=",
         "owner": "musnix",
         "repo": "musnix",
-        "rev": "0bac3f9b14ac767d81c8b19134fb23e3959b8cef",
+        "rev": "79a6cf5a711e7d2dbf0a3ba0df9bae016d6247f8",
         "type": "github"
       },
       "original": {
@@ -286,11 +286,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1678703398,
-        "narHash": "sha256-Y1mW3dBsoWLHpYm+UIHb5VZ7rx024NNHaF16oZBx++o=",
+        "lastModified": 1679472241,
+        "narHash": "sha256-VK2YDic2NjPvfsuneJCLIrWS38qUfoW8rLLimx0rWXA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "67f26c1cfc5d5783628231e776a81c1ade623e0b",
+        "rev": "9ef6e7727f4c31507627815d4f8679c5841efb00",
         "type": "github"
       },
       "original": {
@@ -336,11 +336,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1678873529,
-        "narHash": "sha256-nLokAX8q6Ot1/qtfmpdmITG/SZLUjMlPu9SF1hOIzwE=",
+        "lastModified": 1679557124,
+        "narHash": "sha256-W1lSEOJW5dmv4FhMxZWcr5ZFwvImKbE19sIIAAfdMbo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "0575c2d0cad766f6be352500e60db9d242cc3143",
+        "rev": "2e6da00695e553ed8b16a50b300b5906483a3bb9",
         "type": "github"
       },
       "original": {
@@ -445,11 +445,11 @@
         "tree-sitter-typescript": "tree-sitter-typescript"
       },
       "locked": {
-        "lastModified": 1678788819,
-        "narHash": "sha256-Aj4jf5NGkh6bvXCmVNGXGSpq6tOTA6BuVBL211x6ykM=",
+        "lastModified": 1679398223,
+        "narHash": "sha256-few+F5IhCMbyOO1uzteY9EyN7nOqU3y0S1bUaspv0Sk=",
         "owner": "BrianHicks",
         "repo": "tree-grepper",
-        "rev": "fb1af75629ae6d058349c954b8b8fedd5e217ac7",
+        "rev": "6ed09be5cd28c30036731c8937f25550eefaaa14",
         "type": "github"
       },
       "original": {
@@ -543,11 +543,11 @@
     "tree-sitter-haskell": {
       "flake": false,
       "locked": {
-        "lastModified": 1678796716,
-        "narHash": "sha256-2nXKC7rQYbY2Sr0GVYETR83KYza1HKqpmjFkkgP80rI=",
+        "lastModified": 1679664610,
+        "narHash": "sha256-BDvzmFIGABtkWEUbi74o3vPLsiwNWsQDNura867vYpU=",
         "owner": "tree-sitter",
         "repo": "tree-sitter-haskell",
-        "rev": "fb3c19e8e307acaf9336ab88330fd386ce731638",
+        "rev": "98fc7f59049aeb713ab9b72a8ff25dcaaef81087",
         "type": "github"
       },
       "original": {

@@ -41,6 +41,7 @@ in
       google-chrome
       kdeconnect
       konsole
+      nomad
       mpv
       remmina
       nix-diff
