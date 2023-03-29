@@ -23,6 +23,7 @@ in
     homeDirectory = "/home/ollie";
 
     packages = with pkgs; [
+      asciinema
       alloy5
       ardour
       entr
