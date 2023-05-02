@@ -11,7 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     helix = {
-      url = "github:ocharles/helix/tree-sitter-cabal";
+      url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     git-branchless = {
