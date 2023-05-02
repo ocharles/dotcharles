@@ -42,13 +42,13 @@ in
       google-chrome
       kdeconnect
       konsole
+      logseq
       nomad
       mpv
       remmina
       nix-diff
       nixpkgs-fmt
       ntfs3g
-      # obsidian
       okular
       picard
       qjackctl
