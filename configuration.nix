@@ -41,6 +41,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.ssh.startAgent = true;
+  programs.steam.enable = true;
 
   security.rtkit.enable = true;
 
