@@ -138,17 +138,17 @@ in
       enable = true;
 
       font = {
-        # name = "Iosevka Kitty Semibold"; 
-        # package = iosevka; 
+        name = "Iosevka Kitty Bold";
+        package = iosevka;
 
-        name = "Berkeley Mono Bold";
+        # name = "Berkeley Mono Bold";
       };
 
       extraConfig = ''
-        font_size 14.0
-        modify_font cell_height 2px
+        font_size 15.0
+        # modify_font cell_height 2px
         tab_bar_style powerline
-        window_margin_width 3
+        window_margin_width 0
         include ${pkgs.catppuccin-kitty}/themes/macchiato.conf
       '';
     };
