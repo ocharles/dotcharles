@@ -67,6 +67,8 @@
       videoDrivers = [ "nvidia" ];
       layout = "dvorak";
     };
+
+    redis.enable = true;
   };
 
   time.timeZone = "Europe/London";
