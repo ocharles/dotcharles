@@ -42,7 +42,7 @@ in
       google-chrome
       kdeconnect
       konsole
-      logseq
+      # logseq
       nomad
       mpv
       remmina
@@ -52,6 +52,7 @@ in
       okular
       picard
       qjackctl
+      quodlibet-full
       restic
       ripgrep
       spectacle
