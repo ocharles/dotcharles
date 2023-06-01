@@ -13,8 +13,6 @@
 
   console.keyMap = "dvorak";
 
-  environment.systemPackages = [ pkgs.libsForQt5.bismuth ];
-
   home-manager = {
     useGlobalPkgs = true;
     users.ollie = import ./home.nix;
@@ -40,6 +38,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.fish.enable = true;
   programs.ssh.startAgent = true;
   programs.steam.enable = true;
 
@@ -62,7 +61,6 @@
       displayManager.sddm.enable = true;
       desktopManager.plasma5 = {
         enable = true;
-        supportDDC = true;
       };
       videoDrivers = [ "nvidia" ];
       layout = "dvorak";
