@@ -64,6 +64,7 @@ in
       wireshark
       simplescreenrecorder
       tree-grepper
+      viu
     ];
 
     sessionVariables = {
