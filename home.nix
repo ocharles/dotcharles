@@ -152,6 +152,8 @@ in
         tab_bar_style powerline
         window_margin_width 0
         include ${pkgs.catppuccin-kitty}/themes/macchiato.conf
+
+        map ctrl+shift+enter new_window_with_cwd
       '';
     };
 
