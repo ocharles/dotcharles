@@ -140,7 +140,7 @@ in
       enable = true;
 
       font = {
-        name = "Iosevka Kitty Bold";
+        name = "Iosevka Kitty";
         package = iosevka;
 
         # name = "Berkeley Mono Bold";
