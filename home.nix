@@ -44,6 +44,7 @@ in
       konsole
       jj
       # logseq
+      meld
       nomad
       mpv
       remmina
