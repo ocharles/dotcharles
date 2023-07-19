@@ -42,6 +42,7 @@ in
       google-chrome
       kdeconnect
       konsole
+      jj
       # logseq
       nomad
       mpv

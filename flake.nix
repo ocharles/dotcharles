@@ -26,6 +26,10 @@
       inputs.tree-sitter-haskell.url = "github:tree-sitter/tree-sitter-haskell";
       url = "github:BrianHicks/tree-grepper";
     };
+    jj = {
+      url = "github:martinvonz/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs:
@@ -35,8 +39,9 @@
       };
 
       packageUpgrades = self: super: {
-        helix = inputs.helix.packages.x86_64-linux.default;
         git-branchless = inputs.git-branchless.defaultPackage.x86_64-linux;
+        helix = inputs.helix.packages.x86_64-linux.default;
+        jj = inputs.jj.packages.x86_64-linux.default;
         tree-grepper = inputs.tree-grepper.packages.x86_64-linux.tree-grepper;
 
         inherit (inputs) catppuccin-kitty;
