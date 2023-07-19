@@ -141,14 +141,14 @@ in
       enable = true;
 
       font = {
-        name = "Iosevka Kitty";
+        name = "Iosevka Kitty Medium";
         package = iosevka;
 
         # name = "Berkeley Mono Bold";
       };
 
       extraConfig = ''
-        font_size 15.0
+        font_size 14.0
         # modify_font cell_height 2px
         tab_bar_style powerline
         window_margin_width 0
