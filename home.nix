@@ -99,7 +99,7 @@ in
     helix = {
       enable = true;
       settings = {
-        theme = "ayu_dark";
+        theme = "catppuccin_mocha";
         editor = {
           cursorline = true;
           rulers = [ 100 ];
