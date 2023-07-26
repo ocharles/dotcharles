@@ -22,6 +22,21 @@ in
 
     homeDirectory = "/home/ollie";
 
+    file.".jjconfig.toml".text = ''
+      [user]
+      name = "Ollie Charles"
+      email = "ollie@ocharles.org.uk"
+
+      [revset-aliases]
+      'MINE' = 'author(ocharles)'
+      'MY_HEAD' = '((visible_heads() & :MINE & (~empty() | merges())) | @)'
+      'MAIN' = '(present("main") | present("master"))'
+      'DEFAULT' = "MAIN | (:MY_HEAD~:MAIN) | (:MY_HEAD~:MAIN)-"
+
+      [revsets]
+      log = "DEFAULT | root"
+    '';
+
     packages = with pkgs; [
       asciinema
       alloy5
