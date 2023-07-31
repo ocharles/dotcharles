@@ -63,6 +63,7 @@ in
       jj
       # logseq
       meld
+      ncdu
       nomad
       mpv
       remmina
