@@ -23,6 +23,9 @@ in
     homeDirectory = "/home/ollie";
 
     file.".jjconfig.toml".text = ''
+      [core]
+      fsmonitor = "watchman"
+
       [user]
       name = "Ollie Charles"
       email = "ollie@ocharles.org.uk"
@@ -81,6 +84,7 @@ in
       wireshark
       simplescreenrecorder
       tree-grepper
+      watchman
       viu
     ];
 
