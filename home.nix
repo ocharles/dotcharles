@@ -32,9 +32,9 @@ in
 
       [revset-aliases]
       'MINE' = 'author(ocharles)'
-      'MY_HEAD' = '((visible_heads() & :MINE & (~empty() | merges())) | @)'
+      'MY_HEAD' = '((visible_heads() & ::MINE & (~empty() | merges())) | @)'
       'MAIN' = '(present("main") | present("master"))'
-      'DEFAULT' = "MAIN | (:MY_HEAD~:MAIN) | (:MY_HEAD~:MAIN)-"
+      'DEFAULT' = "MAIN | (::MY_HEAD~::MAIN) | (::MY_HEAD~::MAIN)-"
 
       [revsets]
       log = "DEFAULT | root"
