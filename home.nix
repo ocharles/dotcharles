@@ -26,6 +26,9 @@ in
       [core]
       fsmonitor = "watchman"
 
+      [ui]
+      diff.tool = ["difft", "--color=always", "$left", "$right"]
+
       [user]
       name = "Ollie Charles"
       email = "ollie@ocharles.org.uk"
