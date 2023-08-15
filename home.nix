@@ -28,6 +28,7 @@ in
 
       [ui]
       diff.tool = ["difft", "--color=always", "$left", "$right"]
+      pager="less -SFRX"
 
       [user]
       name = "Ollie Charles"
