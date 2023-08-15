@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -43,6 +44,8 @@
         helix = inputs.helix.packages.x86_64-linux.default;
         jj = inputs.jj.packages.x86_64-linux.default;
         tree-grepper = inputs.tree-grepper.packages.x86_64-linux.tree-grepper;
+
+        kitty = (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).kitty;
 
         inherit (inputs) catppuccin-kitty;
       };
