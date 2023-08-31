@@ -47,6 +47,7 @@
   services = {
     openssh.enable = true;
     tailscale.enable = true;
+    earlyoom.enable = true;
 
     pipewire = {
       enable = true;
