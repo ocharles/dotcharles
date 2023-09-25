@@ -78,5 +78,8 @@
     shell = pkgs.fish;
   };
 
+
+  virtualisation.docker.enable = true;
+
   virtualisation.virtualbox.host.enable = true;
 } 
