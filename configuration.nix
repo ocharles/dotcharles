@@ -79,7 +79,10 @@
   };
 
 
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableNvidia = true;
+  };
 
   virtualisation.virtualbox.host.enable = true;
 } 
