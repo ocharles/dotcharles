@@ -42,6 +42,9 @@ in
 
       [revsets]
       log = "DEFAULT | root"
+
+      [snapshot]
+      max-new-file-size = '4MiB'
     '';
 
     packages = with pkgs; [
