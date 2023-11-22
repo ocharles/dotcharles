@@ -41,7 +41,7 @@ in
       'DEFAULT' = "MAIN | (::MY_HEAD~::MAIN) | (::MY_HEAD~::MAIN)-"
 
       [revsets]
-      log = "DEFAULT | root"
+      log = "DEFAULT | root()"
 
       [snapshot]
       max-new-file-size = '4MiB'
