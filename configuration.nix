@@ -13,6 +13,8 @@
 
   console.keyMap = "dvorak";
 
+  hardware.bluetooth.enable = true;
+
   home-manager = {
     useGlobalPkgs = true;
     users.ollie = import ./home.nix;
