@@ -123,11 +123,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698125575,
-        "narHash": "sha256-bzUgeHyiZut+wBiM1sxuynOjy6vF/72LV0qgeRe2iAM=",
+        "lastModified": 1700548612,
+        "narHash": "sha256-muZlCIxZ5KuEbNP+nnLOMn5kA61IZjAgxi7S5+SQNYA=",
         "owner": "arxanas",
         "repo": "git-branchless",
-        "rev": "5ee9f767c4e64e6cbea463cc4e6018a04698d0a2",
+        "rev": "ec8880a682cd945186c95d3dcb0beb5cbb070ab6",
         "type": "github"
       },
       "original": {
@@ -146,11 +146,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1698790188,
-        "narHash": "sha256-sAp4RIto3fDjb/HJ4NR3HlHo3J8R7tK4/qSGYkhudUA=",
+        "lastModified": 1700636428,
+        "narHash": "sha256-Z5ue+vrIBf3PX6Rb4ZiCMXEjWyQORmLTfBiomro9K/0=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "a069b928973aad99b85dffb9d5ade7dae4b58c43",
+        "rev": "811d62d3b3699efb7b7ceb362f537979e5911871",
         "type": "github"
       },
       "original": {
@@ -166,11 +166,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1695108154,
-        "narHash": "sha256-gSg7UTVtls2yO9lKtP0yb66XBHT1Fx5qZSZbGMpSn2c=",
+        "lastModified": 1700392168,
+        "narHash": "sha256-v5LprEFx3u4+1vmds9K0/i7sHjT0IYGs7u9v54iz/OA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "07682fff75d41f18327a871088d20af2710d4744",
+        "rev": "28535c3a34d79071f2ccb68671971ce0c0984d7e",
         "type": "github"
       },
       "original": {
@@ -189,11 +189,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1698825357,
-        "narHash": "sha256-c9lxC/Q4xxbuwbZ01vfeMp0G5WjinuGKCOFAUR8UcQw=",
+        "lastModified": 1700626778,
+        "narHash": "sha256-oYIxN/2vpcpa7fMKEdKD2Il/WLOeAgiF8nJMas0hKrc=",
         "owner": "martinvonz",
         "repo": "jj",
-        "rev": "6b1217ec6dc99b00dd76190acdf0b5edefdbba03",
+        "rev": "8fac33afdb7ebd10d40b1196349d0cd8bea0da7d",
         "type": "github"
       },
       "original": {
@@ -245,11 +245,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1698562188,
-        "narHash": "sha256-9nkxGnA/T+jLhHAMFRW157Qi/zfbf5dF1q7HfKROl3o=",
+        "lastModified": 1700403855,
+        "narHash": "sha256-Q0Uzjik9kUTN9pd/kp52XJi5kletBhy29ctBlAG+III=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "3e10c80821dedb93592682379f476745f370a58e",
+        "rev": "0c5678df521e1407884205fe3ce3cf1d7df297db",
         "type": "github"
       },
       "original": {
@@ -261,11 +261,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1698611440,
-        "narHash": "sha256-jPjHjrerhYDy3q9+s5EAsuhyhuknNfowY6yt6pjn9pc=",
+        "lastModified": 1700390070,
+        "narHash": "sha256-de9KYi8rSJpqvBfNwscWdalIJXPo8NjdIZcEJum1mH0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0cbe9f69c234a7700596e943bfae7ef27a31b735",
+        "rev": "e4ad989506ec7d71f7302cc3067abd82730a4beb",
         "type": "github"
       },
       "original": {
@@ -293,11 +293,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1698831793,
-        "narHash": "sha256-O5aeleQUS/lJB7oke9O2MszmDOyJVCubuDUlkPxI8fY=",
+        "lastModified": 1700640955,
+        "narHash": "sha256-SCC/M0oeb0vL5v4nEUKQ/443pVYjfiVXXlfs3CWeq6E=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5d1b2d02ceed81a97ad36a814a00353dc617ff26",
+        "rev": "86dc8be032c2f36df24cee3d9eab2b7b7e6497cb",
         "type": "github"
       },
       "original": {
@@ -437,11 +437,11 @@
         "tree-sitter-typescript": "tree-sitter-typescript"
       },
       "locked": {
-        "lastModified": 1698745568,
-        "narHash": "sha256-p5u9e5E+aY8BUZdHC6/6mSU6UOH9mzzBPiSbwJE/xrs=",
+        "lastModified": 1700564526,
+        "narHash": "sha256-D4aF6iq2Tgmo20+vMafiXm4sazyhDQ/FiCHUT4Ev+dg=",
         "owner": "BrianHicks",
         "repo": "tree-grepper",
-        "rev": "ca46f0e81f899e7562cabcaa50e1a78e60a98934",
+        "rev": "bdda18c45092a19df395bd15e4265effbf6b1af9",
         "type": "github"
       },
       "original": {
