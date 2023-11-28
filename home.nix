@@ -131,12 +131,18 @@ in
           cursorline = true;
           rulers = [ 100 ];
           gutters = [ "diagnostics" "spacer" "line-numbers" "diff" ];
+          color-modes = true;
+          bufferline = "always";
           cursor-shape = {
             insert = "bar";
             normal = "block";
             select = "underline";
           };
-          lsp.display-messages = true;
+          lsp = {
+            display-messages = true;
+            display-inlay-hints = true;
+          };
+          smart-tab.supersede-menu = true;
         };
       };
     };
