@@ -15,10 +15,6 @@
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    git-branchless = {
-      url = "github:arxanas/git-branchless";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     catppuccin-kitty = {
       url = "github:catppuccin/kitty";
       flake = false;
@@ -40,7 +36,6 @@
       };
 
       packageUpgrades = self: super: {
-        git-branchless = inputs.git-branchless.defaultPackage.x86_64-linux;
         helix = inputs.helix.packages.x86_64-linux.default;
         jj = inputs.jj.packages.x86_64-linux.default;
         tree-grepper = inputs.tree-grepper.packages.x86_64-linux.tree-grepper;

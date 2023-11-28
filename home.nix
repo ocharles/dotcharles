@@ -58,7 +58,6 @@ in
       gdb
       gh
       gimp
-      git-branchless
       git-crypt
       gitAndTools.git-annex
       gitAndTools.hub
