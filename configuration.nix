@@ -11,8 +11,6 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
-  console.keyMap = "dvorak";
-
   hardware.bluetooth.enable = true;
 
   home-manager = {
@@ -66,7 +64,6 @@
         enable = true;
       };
       videoDrivers = [ "nvidia" ];
-      layout = "dvorak";
     };
 
     redis.enable = true;
