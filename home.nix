@@ -93,6 +93,7 @@ in
       tree-grepper
       watchman
       viu
+      fzf
     ];
 
     sessionVariables = {
@@ -120,7 +121,16 @@ in
 
     firefox.enable = true;
 
-    fish.enable = true;
+    fish = {
+      enable = true;
+      plugins = [
+        { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
+      ];
+      shellAliases = {
+        icat = "kitty +kitten icat";
+        ssh = "kitty +kitten ssh";
+      };
+    };
 
     helix = {
       enable = true;
