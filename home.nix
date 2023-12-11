@@ -191,7 +191,7 @@ in
       };
 
       extraConfig = ''
-        font_size 14.0
+        font_size 12.0
         # modify_font cell_height 2px
         tab_bar_style powerline
         window_margin_width 0
