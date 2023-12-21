@@ -197,7 +197,7 @@ in
         window_margin_width 0
         include ${pkgs.catppuccin-kitty}/themes/macchiato.conf
 
-        map ctrl+shift+enter new_window_with_cwd
+        map ctrl+shift+enter launch --type window --cwd last_reported
       '';
     };
 
