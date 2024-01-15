@@ -203,4 +203,6 @@ in
 
     zoxide.enable = true;
   };
+
+  services.rsibreak.enable = true;
 }
