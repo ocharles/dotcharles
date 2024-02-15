@@ -51,6 +51,7 @@ in
       asciinema
       alloy5
       ardour
+      emacs29-gtk3
       entr
       esphome
       fd
