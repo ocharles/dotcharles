@@ -87,6 +87,7 @@ in
       sqlite
       tlaplusToolbox
       tokei
+      unrar
       unzip
       vlc
       wireshark
