@@ -27,6 +27,7 @@
       url = "github:martinvonz/jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake.url = "github:sodiboo/niri-flake";
   };
 
   outputs = inputs:
@@ -54,6 +55,7 @@
             overlays
             inputs.home-manager.nixosModule
             inputs.musnix.nixosModules.musnix
+            inputs.niri-flake.nixosModules.niri
             ./configuration.nix
           ];
       };

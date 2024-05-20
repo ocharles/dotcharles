@@ -12,6 +12,7 @@
   };
 
   hardware.bluetooth.enable = true;
+  hardware.nvidia.modesetting.enable = true;
 
   home-manager = {
     useGlobalPkgs = true;
@@ -41,6 +42,7 @@
   programs.fish.enable = true;
   programs.ssh.startAgent = true;
   programs.steam.enable = true;
+  programs.niri.enable = true;
 
   security.rtkit.enable = true;
 
