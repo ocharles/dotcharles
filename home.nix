@@ -99,6 +99,7 @@ in
       fuzzel
       sioyek
       swaybg
+      swaynotificationcenter
     ];
 
     sessionVariables = {
@@ -238,13 +239,17 @@ in
 
       spawn-at-startup = [
         { command = [ "waybar" ]; }
-        { command = [ "mako" ]; }
+        { command = [ "swaync" ]; }
         { command = [ "swaybg" "-i" "/home/ollie//Downloads/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg" ]; }
       ];
 
       cursor = {
         theme = "Breeze_Snow";
         size = 24;
+      };
+
+      layout = {
+        center-focused-column = "on-overflow";
       };
 
       window-rules = [
@@ -285,22 +290,14 @@ in
         "Mod+Shift+P".action = power-off-monitors;
 
         "Mod+Left".action = focus-column-left;
-        "Mod+Down".action = focus-window-down;
-        "Mod+Up".action = focus-window-up;
+        "Mod+Down".action = focus-window-or-workspace-down;
+        "Mod+Up".action = focus-window-or-workspace-up;
         "Mod+Right".action = focus-column-right;
-        "Mod+H".action = focus-column-left;
-        "Mod+J".action = focus-window-down;
-        "Mod+K".action = focus-window-up;
-        "Mod+L".action = focus-column-right;
 
         "Mod+Ctrl+Left".action = move-column-left;
-        "Mod+Ctrl+Down".action = move-window-down;
-        "Mod+Ctrl+Up".action = move-window-up;
+        "Mod+Ctrl+Down".action = move-window-down-or-to-workspace-down;
+        "Mod+Ctrl+Up".action = move-window-up-or-to-workspace-up;
         "Mod+Ctrl+Right".action = move-column-right;
-        "Mod+Ctrl+H".action = move-column-left;
-        "Mod+Ctrl+J".action = move-window-down;
-        "Mod+Ctrl+K".action = move-window-up;
-        "Mod+Ctrl+L".action = move-column-right;
 
         "Mod+Home".action = focus-column-first;
         "Mod+End".action = focus-column-last;

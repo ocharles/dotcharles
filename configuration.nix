@@ -79,11 +79,12 @@
     shell = pkgs.fish;
   };
 
-
   virtualisation.docker = {
     enable = true;
     enableNvidia = true;
   };
 
   virtualisation.virtualbox.host.enable = true;
+
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
 } 
