@@ -8,7 +8,7 @@ let
       spacing = "normal";
       serifs = "sans";
       no-cv-ss = false;
-      export-glyph-names = true;
+      exportGlyphNames = true;
       ligations = {
         "inherits" = "haskell";
       };
