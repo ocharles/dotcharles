@@ -79,6 +79,10 @@
     shell = pkgs.fish;
   };
 
+  virtualisation.podman = {
+    enable = true;
+  };
+
   virtualisation.docker = {
     enable = true;
     enableNvidia = true;
