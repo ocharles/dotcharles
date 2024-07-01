@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-flake.url = "github:sodiboo/niri-flake";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
   outputs = inputs:
@@ -58,6 +59,8 @@
             inputs.home-manager.nixosModule
             inputs.musnix.nixosModules.musnix
             inputs.niri-flake.nixosModules.niri
+            inputs.nixos-hardware.nixosModules.common-pc-ssd
+            inputs.nixos-hardware.nixosModules.common-cpu-intel
             ./configuration.nix
           ];
       };
