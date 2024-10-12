@@ -103,6 +103,7 @@ in
       swayosd
       xwayland-satellite-unstable
       scryer-prolog
+      zotero_7
     ];
 
     sessionVariables = {
