@@ -34,6 +34,7 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    scryer.url = "github:mthom/scryer-prolog";
   };
 
   outputs = inputs:
@@ -52,6 +53,7 @@
         kitty = (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).kitty;
 
         inherit (inputs) catppuccin-kitty;
+        scryer-prolog = inputs.scryer.packages.x86_64-linux.default;
       };
     in
     {

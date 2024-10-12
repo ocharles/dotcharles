@@ -100,6 +100,7 @@ in
       sioyek
       swaybg
       swaynotificationcenter
+      scryer-prolog
     ];
 
     sessionVariables = {
