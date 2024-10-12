@@ -50,8 +50,6 @@
       };
 
       packageUpgrades = self: super: {
-        kitty = (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).kitty;
-
         inherit (inputs) catppuccin-kitty;
         scryer-prolog = inputs.scryer.packages.x86_64-linux.default;
       };
