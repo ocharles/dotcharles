@@ -173,6 +173,10 @@ in
             display-inlay-hints = true;
           };
           smart-tab.supersede-menu = true;
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics = {
+            cursor-line = "warning";
+          };
         };
       };
     };
