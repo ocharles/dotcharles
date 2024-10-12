@@ -3,7 +3,7 @@
   system.stateVersion = "22.11";
 
   imports = [
-    ./hardware-configuration.nix
+    ./desktop/hardware-configuration.nix
   ];
 
   boot = {

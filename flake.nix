@@ -67,7 +67,7 @@
               inputs.niri-flake.nixosModules.niri
               inputs.nixos-hardware.nixosModules.common-pc-ssd
               inputs.nixos-hardware.nixosModules.common-cpu-intel
-              ./configuration.nix
+              ./desktop.nix
             ];
         };
 
