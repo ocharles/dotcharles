@@ -112,6 +112,20 @@ in
 
   fonts.fontconfig.enable = true;
 
+  gtk = {
+    enable = true;
+
+    cursorTheme = {
+      name = "Breeze_Snow";
+      size = 24;
+    };
+
+    font = {
+      name = "Sans";
+      size = 10;
+    };
+  };
+
   programs = {
     bat.enable = true;
 
