@@ -101,6 +101,7 @@ in
       swaybg
       swaynotificationcenter
       swayosd
+      xwayland-satellite-unstable
       scryer-prolog
     ];
 

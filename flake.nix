@@ -41,6 +41,7 @@
     let
       overlays = {
         nixpkgs.overlays = [
+          inputs.niri-flake.overlays.niri
           inputs.jj.overlays.default
           packageUpgrades
         ];
