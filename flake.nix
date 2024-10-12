@@ -42,13 +42,13 @@
       overlays = {
         nixpkgs.overlays = [
           inputs.niri-flake.overlays.niri
+          inputs.helix.overlays.default
           inputs.jj.overlays.default
           packageUpgrades
         ];
       };
 
       packageUpgrades = self: super: {
-        helix = inputs.helix.packages.x86_64-linux.default;
         tree-grepper = inputs.tree-grepper.packages.x86_64-linux.tree-grepper;
 
         kitty = (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).kitty;
