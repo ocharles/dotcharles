@@ -44,13 +44,12 @@
           inputs.niri-flake.overlays.niri
           inputs.helix.overlays.default
           inputs.jj.overlays.default
+          inputs.tree-grepper.overlay.x86_64-linux
           packageUpgrades
         ];
       };
 
       packageUpgrades = self: super: {
-        tree-grepper = inputs.tree-grepper.packages.x86_64-linux.tree-grepper;
-
         kitty = (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).kitty;
 
         inherit (inputs) catppuccin-kitty;
