@@ -50,19 +50,21 @@
       };
     in
     {
-      nixosConfigurations.desktop = inputs.nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules =
-          [
-            overlays
-            inputs.home-manager.nixosModule
-            inputs.musnix.nixosModules.musnix
-            inputs.niri-flake.nixosModules.niri
-            inputs.nixos-hardware.nixosModules.common-pc-ssd
-            inputs.nixos-hardware.nixosModules.common-cpu-intel
-            ./configuration.nix
-          ];
+      nixosConfigurations = {
+        desktop = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules =
+            [
+              overlays
+              inputs.home-manager.nixosModule
+              inputs.musnix.nixosModules.musnix
+              inputs.niri-flake.nixosModules.niri
+              inputs.nixos-hardware.nixosModules.common-pc-ssd
+              inputs.nixos-hardware.nixosModules.common-cpu-intel
+              ./configuration.nix
+            ];
+        };
       };
 
       homeConfigurations.ollie = inputs.home-manager.lib.homeManagerConfiguration {
