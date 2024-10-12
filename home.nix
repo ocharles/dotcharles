@@ -100,6 +100,7 @@ in
       sioyek
       swaybg
       swaynotificationcenter
+      swayosd
       scryer-prolog
     ];
 
@@ -259,7 +260,8 @@ in
       spawn-at-startup = [
         { command = [ "waybar" ]; }
         { command = [ "swaync" ]; }
-        { command = [ "swaybg" "-i" "/home/ollie//Downloads/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg" ]; }
+        { command = [ "swaybg" "-i" "/home/ollie/Downloads/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg" ]; }
+        { command = [ "swayosd-server" ]; }
       ];
 
       cursor = {
@@ -299,6 +301,13 @@ in
       };
 
       binds = with config.lib.niri.actions; {
+        "XF86AudioRaiseVolume".action = spawn "swayosd-client" "--output-volume" "raise";
+        "XF86AudioLowerVolume".action = spawn "swayosd-client" "--output-volume" "lower";
+        "XF86AudioMute".action = spawn "swayosd-client" "--output-volume" "mute-toggle";
+
+        "XF86MonBrightnessUp".action = spawn "swayosd-client" "--brightness" "raise";
+        "XF86MonBrightnessDown".action = spawn "swayosd-client" "--brightness" "lower";
+
         "Mod+Shift+Slash".action = show-hotkey-overlay;
 
         "Mod+T".action = spawn "kitty";
