@@ -29,6 +29,7 @@
     };
     niri-flake.url = "github:sodiboo/niri-flake";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    ags.url = "github:Aylur/ags";
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -67,6 +68,23 @@
               inputs.nixos-hardware.nixosModules.common-pc-ssd
               inputs.nixos-hardware.nixosModules.common-cpu-intel
               ./configuration.nix
+            ];
+        };
+
+        laptop = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = { inherit inputs; };
+
+          modules =
+            [
+              overlays
+              inputs.home-manager.nixosModule
+              inputs.musnix.nixosModules.musnix
+              inputs.niri-flake.nixosModules.niri
+              inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
+              inputs.lix-module.nixosModules.default
+              ./laptop.nix
             ];
         };
 
