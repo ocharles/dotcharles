@@ -431,4 +431,8 @@ in
 
   services.mako.enable = true;
   services.rsibreak.enable = true;
+
+  services.syncthing = {
+    enable = true;
+  };
 }
