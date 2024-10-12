@@ -105,19 +105,6 @@
         };
       };
 
-      homeConfigurations.ollie = inputs.home-manager.lib.homeManagerConfiguration {
-        # https://github.com/nix-community/home-manager/issues/2942#issuecomment-1378627909
-        pkgs = import inputs.nixpkgs {
-          config.allowUnfree = true;
-          system = "x86_64-linux";
-        };
-
-        modules = [
-          overlays
-          ./home.nix
-        ];
-      };
-
       formatter.x86_64-linux = inputs.nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
     };
 }
