@@ -67,7 +67,7 @@ in
       google-chrome
       kdeconnect
       konsole
-      jj
+      jujutsu
       # logseq
       meld
       ncdu

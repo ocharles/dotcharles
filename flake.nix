@@ -40,13 +40,13 @@
     let
       overlays = {
         nixpkgs.overlays = [
+          inputs.jj.overlays.default
           packageUpgrades
         ];
       };
 
       packageUpgrades = self: super: {
         helix = inputs.helix.packages.x86_64-linux.default;
-        jj = inputs.jj.packages.x86_64-linux.default;
         tree-grepper = inputs.tree-grepper.packages.x86_64-linux.tree-grepper;
 
         kitty = (import inputs.nixpkgs-unstable { system = "x86_64-linux"; }).kitty;
