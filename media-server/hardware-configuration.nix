@@ -1,4 +1,4 @@
-{ lib, modulesPath, pkgs, ...}:
+{ lib, modulesPath, pkgs, ... }:
 {
   imports =
     [
@@ -50,7 +50,7 @@
     depends = [ "/mnt/media" ];
     options = [
       "config=/etc/rclone.conf"
-      "vfs_cache_mode=full" 
+      "vfs_cache_mode=full"
       "vfs_cache_max_size=10G"
       "allow_other"
       "umask=002"

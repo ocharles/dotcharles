@@ -73,16 +73,16 @@
           interface = "tailscale0";
           cidr = "100.90.122.99/32";
         };
-        servers = [ "100.82.141.7" ];
+        servers = [ "100.66.127.89" ];
       };
     };
   };
 
   systemd.services.nomad = {
-    bindsTo = [ "sys-subsystem-net-devices-tailscale0.device" ];    
+    bindsTo = [ "sys-subsystem-net-devices-tailscale0.device" ];
     wants = [ "mnt-seedhost.mount" ];
-    after = [ 
-      "sys-subsystem-net-devices-tailscale0.device" 
+    after = [
+      "sys-subsystem-net-devices-tailscale0.device"
       "mnt-seedhost.mount"
       "tailscaled.service"
     ];
