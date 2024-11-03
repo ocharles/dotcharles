@@ -6,6 +6,7 @@
   imports =
     [
       (modulesPath + "/profiles/qemu-guest.nix")
+      ./machine.nix
     ];
 
   boot = {
@@ -42,9 +43,9 @@
     consul = {
       enable = true;
       extraConfig = {
+        bootstrap_expect = 1;
         datacenter = "linode";
         server = true;
-        peering.enabled = false;
       };
       interface.bind = "tailscale0";
       webUi = true;
@@ -52,6 +53,8 @@
 
     nomad = {
       enable = true;
+      dropPrivileges = false;
+
       settings = {
         advertise = {
           http = "100.66.127.89";
@@ -60,10 +63,23 @@
         };
         datacenter = "linode";
         server = {
+          bootstrap_expect = 1;
           enabled = true;
         };
         client = {
+          options."docker.volumes.enabled" = true;
+
           enabled = true;
+          host_volume = {
+            blog = {
+              path = "/nix/store/m8k1mz35mmvrdq9xq19zc8h78cmzkmix-ocharles.org.uk-blog-1";
+              read_only = true;
+            };
+            letsencrypt = {
+              path = "/var/lib/letsencrypt";
+              read_only = false;
+            };
+          };
         };
       };
     };
@@ -89,4 +105,5 @@
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
+  virtualisation.docker.enable = true;
 }
