@@ -65,7 +65,6 @@ in
       graphviz
       guitarix
       google-chrome
-      kdeconnect
       konsole
       jujutsu
       # logseq
@@ -92,7 +91,7 @@ in
       vlc
       wireshark
       simplescreenrecorder
-      tree-grepper
+      # tree-grepper
       watchman
       viu
       fzf
