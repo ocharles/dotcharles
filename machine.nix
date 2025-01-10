@@ -16,7 +16,7 @@
 
   users.users.ollie = {
     isNormalUser = true;
-    extraGroups = [ "audio" "dialout" "realtime" "wheel" ];
+    extraGroups = [ "audio" "dialout" "realtime" "wheel" "docker" ];
     shell = pkgs.fish;
   };
 
