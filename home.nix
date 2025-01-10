@@ -68,6 +68,7 @@ in
       konsole
       jujutsu
       # logseq
+      ghostty
       meld
       ncdu
       nomad

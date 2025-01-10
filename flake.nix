@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -48,9 +49,12 @@
         ];
       };
 
+      unstable = import inputs.nixpkgs-unstable { system = "x86_64-linux"; };
+
       packageUpgrades = self: super: {
         inherit (inputs) catppuccin-kitty;
         scryer-prolog = inputs.scryer.packages.x86_64-linux.default;
+        ghostty = unstable.ghostty;
       };
     in
     {
