@@ -23,5 +23,11 @@
     languages = [ "eng" ];
     symbolsFile = ./engrammer;
   };
+
+  services.xserver.xkb.extraLayouts.enthium = {
+    description = "Enthium";
+    languages = [ "eng" ];
+    symbolsFile = ./enthium-14;
+  };
 }
 

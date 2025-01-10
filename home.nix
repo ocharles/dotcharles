@@ -1,20 +1,20 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
-let
-  iosevka = pkgs.iosevka.override {
-    set = "custom";
-    privateBuildPlan = {
-      family = "Iosevka Kitty";
-      spacing = "normal";
-      serifs = "sans";
-      no-cv-ss = false;
-      exportGlyphNames = true;
-      ligations = {
-        "inherits" = "haskell";
-      };
-    };
-  };
-in
+# let
+#   iosevka = pkgs.iosevka.override {
+#     set = "custom";
+#     privateBuildPlan = {
+#       family = "Iosevka Kitty";
+#       spacing = "normal";
+#       serifs = "sans";
+#       no-cv-ss = false;
+#       exportGlyphNames = true;
+#       ligations = {
+#         "inherits" = "haskell";
+#       };
+#     };
+#   };
+# in
 
 {
   home = {
@@ -27,45 +27,41 @@ in
       fsmonitor = "watchman"
 
       [ui]
-      diff.tool = ["difft", "--color=always", "$left", "$right"]
+      diff-editor = "meld-3"
+      diff-formatter = ["difft", "--color=always", "$left", "$right"]
       pager="less -SFRX"
+      movement.edit = true
 
       [user]
       name = "Ollie Charles"
       email = "ollie@ocharles.org.uk"
 
-      [revset-aliases]
-      'MINE' = 'author(ocharles)'
-      'MY_HEAD' = '((visible_heads() & ::MINE & (~empty() | merges())) | @)'
-      'MAIN' = '(present("main") | present("master"))'
-      'DEFAULT' = "MAIN | (::MY_HEAD~::MAIN) | (::MY_HEAD~::MAIN)-"
-
-      [revsets]
-      log = "DEFAULT | root()"
-
       [snapshot]
       max-new-file-size = '4MiB'
+
+      [templates]
+      commit_trailers = 'if(!trailers.contains_key("Change-Id"), format_gerrit_change_id_trailer(self))'
+      git_push_bookmark = '"ollie/jj-" ++ change_id.short()'
     '';
+
 
     packages = with pkgs; [
       asciinema
       alloy5
       ardour
-      emacs29-gtk3
+      # emacs29-gtk3
       entr
-      esphome
+      # esphome
       fd
       file
       gdb
       gh
       gimp
       git-crypt
-      gitAndTools.git-annex
-      gitAndTools.hub
       graphviz
       guitarix
       google-chrome
-      konsole
+      kdePackages.konsole
       jujutsu
       # logseq
       ghostty
@@ -77,14 +73,15 @@ in
       nix-diff
       nixpkgs-fmt
       ntfs3g
-      okular
+      kdePackages.okular
       picard
       qjackctl
       quodlibet-full
       restic
       ripgrep
-      spectacle
+      kdePackages.spectacle
       sqlite
+      terragrunt
       tlaplusToolbox
       tokei
       unrar
@@ -102,7 +99,7 @@ in
       swaynotificationcenter
       swayosd
       xwayland-satellite-unstable
-      scryer-prolog
+      # scryer-prolog
       zotero_7
     ];
 
@@ -152,7 +149,6 @@ in
       ];
       shellAliases = {
         icat = "kitty +kitten icat";
-        ssh = "kitty +kitten ssh";
       };
     };
 
@@ -212,14 +208,14 @@ in
       enable = true;
 
       font = {
-        name = "Iosevka Kitty Medium";
-        package = iosevka;
-
+        name = "Iosevka Medium";
+        package = pkgs.iosevka;
+        # name = "PragmataPro Mono";
         # name = "Berkeley Mono Bold";
       };
 
       extraConfig = ''
-        font_size 12.0
+        font_size 11.0
         # modify_font cell_height 2px
         tab_bar_style powerline
         window_margin_width 0
@@ -237,9 +233,9 @@ in
         mainBar = {
           layer = "top";
 
-          modules-left = [ "wlr/taskbar" ];
-          modules-center = [ "clock" ];
-          modules-right = [ "wireplumber" ];
+          modules-left = [ "niri/workspaces" ];
+          modules-center = [ "niri/window"];
+          modules-right = [ "clock" "battery" "wireplumber" ];
 
           wireplumber = {
             scroll-step = 5.0;
@@ -250,6 +246,54 @@ in
           };
         };
       };
+      style = ''
+        * {
+          border: none;
+          border-radius: 0;
+          font-weight: 600;
+          font-size: 12px;
+          min-height: 0;
+          font-family: "PragmataPro"
+        }
+
+        #waybar {
+          background: transparent;
+          padding-left: 30px;
+        }
+
+        #waybar > box {
+          background: rgba(30, 30, 46, 0.6);
+          margin: 0px; 
+          padding: 0px;
+          box-shadow: 7.5px 7.5px 0px 0px rgba(30, 30, 46, 0.44);
+          border-radius: 0px;
+          margin: 12.5px;
+          margin-bottom: 7.5px;
+          border-radius: 4px;
+        }
+
+        #battery, #wireplumber, #clock, #workspaces button, #window {
+          padding: 5px 10px;
+          color: rgb(205, 214, 244);
+        }
+
+        #workspaces button:first-child {
+          border-radius: 4px 0px 0px 4px;
+        }
+
+        #workspaces button.active {
+          background: rgb(166, 227, 161);
+          color: rgb(30, 30, 46);
+        }
+
+        .muted {
+          background: rgb(231, 130, 132);
+        }
+      '';
+    };
+
+    noctalia-shell = {
+      enable = true;
     };
 
     niri.settings = {
@@ -257,13 +301,21 @@ in
 
       input = {
         warp-mouse-to-focus = true;
+        keyboard.xkb.layout = "engrammer,enthium,us";
+
+        touchpad = {
+          dwt = true;
+          tap-button-map = "left-right-middle";
+          click-method = "clickfinger";
+        };
       };
 
       spawn-at-startup = [
-        { command = [ "waybar" ]; }
-        { command = [ "swaync" ]; }
-        { command = [ "swaybg" "-i" "/home/ollie/Downloads/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg" ]; }
-        { command = [ "swayosd-server" ]; }
+        # { command = [ "waybar" ]; }
+        { command = [ "noctalia-shell" ]; }
+        # { command = [ "swaync" ]; }
+        # { command = [ "swaybg" "-i" "/home/ollie/Downloads/macos-big-sur-apple-layers-fluidic-colorful-wwdc-stock-4096x2304-1455.jpg" ]; }
+        # { command = [ "swayosd-server" ]; }
       ];
 
       cursor = {
@@ -271,49 +323,83 @@ in
         size = 24;
       };
 
+      hotkey-overlay.skip-at-startup = true;
+
       layout = {
         center-focused-column = "on-overflow";
+        focus-ring.width = 2.0;
+        shadow = {
+          enable = true;
+          softness = 0.0;
+          spread = 1.0;
+          offset = rec { x = 7.5; y = x; };
+        };
+        struts = rec {
+          left = 20;
+          right = left;
+        };
       };
 
       window-rules = [
         {
           clip-to-geometry = true;
-          geometry-corner-radius = {
-            bottom-left = 6.0;
-            bottom-right = 6.0;
-            top-left = 6.0;
-            top-right = 6.0;
+          geometry-corner-radius = rec {
+            bottom-left = 1.0;
+            bottom-right = bottom-left;
+            top-left = bottom-left;
+            top-right = bottom-left;
           };
         }
 
         {
           matches = [{ is-active = false; }];
-          opacity = 1.00;
+          opacity = 0.96;
         }
       ];
 
-      outputs."DP-3" = {
-        scale = 1.0;
+      outputs = {
+        "F5CWCP3" = {
+          mode = {
+            width = 2560;
+            height = 1440;
+            refresh = 120.000;
+          };
+          position = {
+            x = 0;
+            y = -1440;
+          };
+        };
 
-        mode = {
-          width = 2560;
-          height = 1440;
-          refresh = 165.0;
+        "eDP-1" = {
+          scale = 1.5;
+
+          mode = {
+            width = 2256;
+            height = 1504;
+            refresh = 60.0;
+          };
+
+          position = {
+            x = 0;
+            y = 0;
+          };
         };
       };
 
       binds = with config.lib.niri.actions; {
-        "XF86AudioRaiseVolume".action = spawn "swayosd-client" "--output-volume" "raise";
-        "XF86AudioLowerVolume".action = spawn "swayosd-client" "--output-volume" "lower";
-        "XF86AudioMute".action = spawn "swayosd-client" "--output-volume" "mute-toggle";
+        "XF86AudioRaiseVolume".action = spawn "noctalia-shell" "ipc" "call" "volume" "increase";
+        "XF86AudioLowerVolume".action = spawn "noctalia-shell" "ipc" "call" "volume" "decrease";
+        "XF86AudioMute".action = spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput";
 
-        "XF86MonBrightnessUp".action = spawn "swayosd-client" "--brightness" "raise";
-        "XF86MonBrightnessDown".action = spawn "swayosd-client" "--brightness" "lower";
+        "XF86MonBrightnessUp".action = spawn "noctalia-shell" "ipc" "call" "brightness" "increase";
+        "XF86MonBrightnessDown".action = spawn "noctalia-shell" "ipc" "call" "brightness" "decrease";
 
         "Mod+Shift+Slash".action = show-hotkey-overlay;
 
-        "Mod+T".action = spawn "kitty";
+        "Mod+T".action = spawn "ghostty";
         "Mod+D".action = spawn "fuzzel";
+
+        "Mod+L".action = switch-layout "next";
 
         "Mod+Q".action = close-window;
         "Mod+Shift+E".action = quit;
@@ -394,15 +480,15 @@ in
         "Mod+7".action = focus-workspace 7;
         "Mod+8".action = focus-workspace 8;
         "Mod+9".action = focus-workspace 9;
-        "Mod+Ctrl+1".action = move-column-to-workspace 1;
-        "Mod+Ctrl+2".action = move-column-to-workspace 2;
-        "Mod+Ctrl+3".action = move-column-to-workspace 3;
-        "Mod+Ctrl+4".action = move-column-to-workspace 4;
-        "Mod+Ctrl+5".action = move-column-to-workspace 5;
-        "Mod+Ctrl+6".action = move-column-to-workspace 6;
-        "Mod+Ctrl+7".action = move-column-to-workspace 7;
-        "Mod+Ctrl+8".action = move-column-to-workspace 8;
-        "Mod+Ctrl+9".action = move-column-to-workspace 9;
+        # "Mod+Ctrl+1".action = move-column-to-workspace 1;
+        # "Mod+Ctrl+2".action = move-column-to-workspace 2;
+        # "Mod+Ctrl+3".action = move-column-to-workspace 3;
+        # "Mod+Ctrl+4".action = move-column-to-workspace 4;
+        # "Mod+Ctrl+5".action = move-column-to-workspace 5;
+        # "Mod+Ctrl+6".action = move-column-to-workspace 6;
+        # "Mod+Ctrl+7".action = move-column-to-workspace 7;
+        # "Mod+Ctrl+8".action = move-column-to-workspace 8;
+        # "Mod+Ctrl+9".action = move-column-to-workspace 9;
 
         "Mod+Comma".action = consume-window-into-column;
         "Mod+Period".action = expel-window-from-column;
@@ -413,6 +499,7 @@ in
         "Mod+R".action = switch-preset-column-width;
         "Mod+Shift+R".action = reset-window-height;
         "Mod+F".action = maximize-column;
+        "Mod+M".action.maximize-window-to-edges = [];
         "Mod+Shift+F".action = fullscreen-window;
         "Mod+C".action = center-column;
 
@@ -422,15 +509,14 @@ in
         "Mod+Shift+Minus".action = set-window-height "-10%";
         "Mod+Shift+Equal".action = set-window-height "+10%";
 
-        "Print".action = screenshot;
-        "Ctrl+Print".action = screenshot-screen;
-        "Alt+Print".action = screenshot-window;
+        "Print".action.screenshot = [];
+        "Ctrl+Print".action.screenshot-screen = [];
+        "Alt+Print".action.screenshot-window = [];
       };
     };
   };
 
   services.mako.enable = true;
-  services.rsibreak.enable = true;
 
   services.syncthing = {
     enable = true;

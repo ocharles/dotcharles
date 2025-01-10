@@ -39,7 +39,10 @@
       "nofail"
       "allow_other"
       "uid=1000"
-      "dir_cache_time=0"
+      "vfs_cache_mode=off"
+      "dir_cache_time=30s"
+      "buffer_size=64M"
+      "ftp_concurrency=4"
       "_netdev"
     ];
   };

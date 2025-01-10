@@ -1,10 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     musnix = {
@@ -28,13 +28,27 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri-flake.url = "github:sodiboo/niri-flake";
+    niri-flake.inputs.niri-stable.url = "github:YaLTeR/niri/v25.11";
+    niri-flake.inputs.niri-stable.flake = false;
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     ags.url = "github:Aylur/ags";
+    scryer.url = "github:mthom/scryer-prolog";
+
+    lix = {
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    scryer.url = "github:mthom/scryer-prolog";
   };
 
   outputs = inputs:
@@ -42,7 +56,7 @@
       overlays = {
         nixpkgs.overlays = [
           inputs.niri-flake.overlays.niri
-          inputs.helix.overlays.default
+          # inputs.helix.overlays.default
           inputs.jj.overlays.default
           inputs.tree-grepper.overlay.x86_64-linux
           packageUpgrades
@@ -55,6 +69,7 @@
         inherit (inputs) catppuccin-kitty;
         scryer-prolog = inputs.scryer.packages.x86_64-linux.default;
         ghostty = unstable.ghostty;
+        terragrunt = unstable.terragrunt;
       };
     in
     {
@@ -65,7 +80,7 @@
           modules =
             [
               overlays
-              inputs.home-manager.nixosModule
+              inputs.home-manager.nixosModules.default
               inputs.musnix.nixosModules.musnix
               inputs.niri-flake.nixosModules.niri
               inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -82,7 +97,7 @@
           modules =
             [
               overlays
-              inputs.home-manager.nixosModule
+              inputs.home-manager.nixosModules.default
               inputs.musnix.nixosModules.musnix
               inputs.niri-flake.nixosModules.niri
               inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
@@ -99,7 +114,7 @@
           modules =
             [
               overlays
-              inputs.home-manager.nixosModule
+              inputs.home-manager.nixosModules.default
               inputs.musnix.nixosModules.musnix
               inputs.niri-flake.nixosModules.niri
               inputs.nixos-hardware.nixosModules.framework-11th-gen-intel

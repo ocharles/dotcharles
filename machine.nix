@@ -2,6 +2,7 @@
 {
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
+    extra-deprecated-features = [ "rec-set-dynamic-attrs" ];
   };
 
   nixpkgs.config.allowUnfree = true;

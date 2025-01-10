@@ -33,6 +33,8 @@
 
   virtualisation.docker.enable = true;
 
+  services.davfs2.enable = true;
+
   services.consul = {
     enable = true;
     interface.bind = "wlp4s0";
@@ -47,7 +49,7 @@
   };
 
   services.nomad = {
-    package = pkgs.nomad_1_6;
+    package = pkgs.nomad;
     enable = true;
     dropPrivileges = false;
     extraPackages = [ pkgs.consul ];
@@ -69,6 +71,10 @@
           path = "/var/lib/sync";
           read_only = false;
         };
+        host_network.public = {
+          interface = "wlp4s0";
+          cidr = "192.168.1.48/32";
+        };
         host_network.tailscale = {
           interface = "tailscale0";
           cidr = "100.90.122.99/32";
@@ -86,6 +92,13 @@
       "mnt-seedhost.mount"
       "tailscaled.service"
     ];
+  };
+
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /mnt/media/Media 192.168.0.0/16(rw,no_root_squash)
+    '';
   };
 }
 

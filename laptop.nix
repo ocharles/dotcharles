@@ -12,7 +12,10 @@
   home-manager = {
     useGlobalPkgs = true;
     users.ollie = import ./home.nix;
-    sharedModules = [ inputs.ags.homeManagerModules.default ];
+    sharedModules = [
+      inputs.ags.homeManagerModules.default
+      inputs.noctalia.homeModules.default
+    ];
   };
 
   nix.settings = {
@@ -25,13 +28,14 @@
     ];
   };
 
-  programs.ssh.startAgent = true;
   programs.steam.enable = true;
   programs.niri.enable = true;
 
   services = {
     fwupd.enable = true;
     earlyoom.enable = true;
+    mullvad-vpn.enable = true;
+    resolved.enable = true;
 
     pipewire = {
       enable = true;
@@ -44,9 +48,14 @@
     xserver = {
       enable = true;
       displayManager.sddm.enable = true;
-      desktopManager.plasma5 = {
+      desktopManager.plasma6 = {
         enable = true;
       };
+    };
+
+    printing = {
+      enable = true;
+      drivers = [ pkgs.samsung-unified-linux-driver ];
     };
 
     redis.enable = true;
